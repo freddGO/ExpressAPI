@@ -1,0 +1,23 @@
+{
+    "compilerOptions": {
+      "baseUrl": "./",
+      "incremental": true,
+      "module": "commonjs",
+      "moduleResolution": "node",
+      "noImplicitAny": true,
+      "outDir": "./dist",
+      "resolveJsonModule": true,
+      "rootDir": "./src_ts",
+      "sourceMap": true,
+      "strictNullChecks": false,
+      "esModuleInterop": true,
+      "target": "es2015",
+      "traceResolution": true
+    },
+    "exclude": [
+      "node_modules"
+    ],
+    "include": [
+      "./src_ts/**/*.ts"
+    ]
+  }
