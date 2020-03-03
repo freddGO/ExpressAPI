@@ -11,14 +11,14 @@ export default function query (queryString: string, parameters?: any[]): Promise
       connection.query(queryString, parameters),
     ]))
     .then((values): Promise<[ DB2Connection, Record<string, any>[]]> => {
-     
+
       const [ connection, rows, ] = values;
 
       return Promise.all([ connection.close(), rows, ]);
 
     })
     .then((values): void => {
-       
+
         const [ , rows, ] = values;
 
       resolve(rows);

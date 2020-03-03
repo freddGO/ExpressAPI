@@ -1,5 +1,5 @@
 import databaseConfiguration from '../interfaces/databaseConfiguration';
-import "../../lib/env"
+import '../../lib/env'
 
 export default class DatabaseConfiguration implements databaseConfiguration {
 
@@ -35,7 +35,7 @@ export default class DatabaseConfiguration implements databaseConfiguration {
 
   public cn (): string {
 
-    let cn =
+    const cn =
       `DATABASE=${this.database};` +
       `HOSTNAME=${this.hostname};` +
       `PORT=${this.port};` +

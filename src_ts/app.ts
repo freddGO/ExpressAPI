@@ -1,15 +1,12 @@
 import express from 'express'
 import * as bodyParser from 'body-parser';
 import cors from 'cors';
+import { Logger, } from 'winston';
+import logger from './utils/logger';
 import { requestLoggerMiddleware } from './request.logger.middleware';
 
 import routerDatabase from './entrypoint/routes/database/database'
 
-declare function require(moduleName: string): any;
-if (process.env.NODE_ENV !== 'production') {
-const dotenv: any = require('dotenv');
-dotenv.config();
-}
 
 const app = express();
 app.use(bodyParser.json());
@@ -24,4 +21,4 @@ app.use('/database', routerDatabase);
 
 
 
-app.listen(9000,  () => console.log('Server running'));
+app.listen(9000,  () => logger.info('Server running'));
