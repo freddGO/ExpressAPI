@@ -1,5 +1,5 @@
-import DB2Connection from '../../services/databaseConectionImplementation/databaseConection';
-import { factory, } from './databaseFactory';
+import DB2Connection from '../../services/databaseConectionImplementation/DatabaseConection';
+import { factory, } from './DatabaseFactory';
 
 export default function query (queryString: string, parameters?: any[]): Promise<Record<string, any>[]> {
 
@@ -19,7 +19,7 @@ export default function query (queryString: string, parameters?: any[]): Promise
     })
     .then((values): void => {
 
-        const [ , rows, ] = values;
+      const [ , rows, ] = values;
 
       resolve(rows);
 

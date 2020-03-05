@@ -1,11 +1,9 @@
 import { Database, Pool, } from 'ibm_db';
-import DB2Configuration from '../../services/databaseConectionImplementation/databaseConfiguration';
-import DB2Connection from '../../services/databaseConectionImplementation/databaseConection';
+import DB2Configuration from '../../services/DatabaseConectionImplementation/databaseConfiguration';
+import DB2Connection from '../../services/DatabaseConectionImplementation/databaseConection';
+import logger from '../../utils/logger';
 
-// import logger from '../utils/logger';
-
-const
-  db2Configuration: DB2Configuration = new DB2Configuration(),
+const db2Configuration: DB2Configuration = new DB2Configuration(),
   pool: Pool = new Pool();
 
 pool.init(db2Configuration.poolInitialSize, db2Configuration.cn());
@@ -23,7 +21,7 @@ function db2Factory (): Promise<DB2Connection> {
 
       } else {
 
-        console.log('IBM DB2 database connection has been successfully created.');
+        logger.info('IBM DB2 database connection has been successfully created.');
         resolve(new DB2Connection(connection));
 
       }
@@ -34,4 +32,4 @@ function db2Factory (): Promise<DB2Connection> {
 
 }
 
-export { pool, db2Factory as factory };
+export { pool, db2Factory as factory, };

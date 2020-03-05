@@ -1,7 +1,9 @@
 import { Database, ODBCResult, ODBCStatement, } from 'ibm_db';
-import IDB2Connection from '../interfaces/databaseConection';
+import IDB2Connection from '../interfaces/DatabaseConection';
 
-// import logger from '../utils/logger';
+import logger from '../../utils/logger';
+
+// Import logger from '../utils/logger';
 
 export default class DB2Connection implements IDB2Connection {
 
@@ -47,7 +49,7 @@ export default class DB2Connection implements IDB2Connection {
 
         } else {
 
-          console.log('IBM DB2 database connection has been successfully closed.');
+          logger.info('IBM DB2 database connection has been successfully closed.');
           resolve(this);
 
         }
@@ -102,7 +104,7 @@ export default class DB2Connection implements IDB2Connection {
 
   }
 
-  public static fetch (result: Record<string, any>, fetchMode: number = 4): Promise<any> {
+  public static fetch (result: Record<string, any>, fetchMode = 4): Promise<any> {
 
     return new Promise<any>((resolve: Function, reject: Function): void => {
 
@@ -150,7 +152,7 @@ export default class DB2Connection implements IDB2Connection {
 
     return new Promise<Record<string, any>[]>((resolve: Function, reject: Function): void => {
 
-      console.log(`Executing query ${query} binding parameters ${JSON.stringify(parameters)}`);
+      logger.info(`Executing query ${query} binding parameters ${JSON.stringify(parameters)}`);
       this.Database.query(query, parameters, (error: Error, rows: Record<string, any>[]): void => {
 
         if (error) {

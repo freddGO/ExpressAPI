@@ -1,4 +1,5 @@
 import * as winston from 'winston';
+
 import { combinedDailyFileConfiguration, errorDailyFileConfiguration, } from './logger.config';
 
 import CustomTransport from './logger.transport';

@@ -1,9 +1,10 @@
 import * as dotenv from 'dotenv';
 
 dotenv.config();
-let path;
-console.log('dirname', __dirname)
+let path = '';
+
 switch (process.env.NODE_ENV) {
+
   case 'test':
     path = `${__dirname}/.env.test`;
     break;
@@ -12,8 +13,9 @@ switch (process.env.NODE_ENV) {
     break;
   default:
     path = `${__dirname}/../../.env.development`;
-}
-dotenv.config({ path });
 
-export const APP_ID = process.env.APP_ID;
-export const LOG_LEVEL = process.env.LOG_LEVEL;
+}
+dotenv.config({ path, });
+
+export const { APP_ID, } = process.env;
+export const { LOG_LEVEL, } = process.env;

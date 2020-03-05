@@ -1,5 +1,6 @@
-import databaseConfiguration from '../interfaces/databaseConfiguration';
-import '../../lib/env'
+import '../../lib/env';
+import databaseConfiguration from '../interfaces/DatabaseConfiguration';
+
 
 export default class DatabaseConfiguration implements databaseConfiguration {
 
@@ -41,7 +42,7 @@ export default class DatabaseConfiguration implements databaseConfiguration {
       `PORT=${this.port};` +
       `PROTOCOL=${this.protocol};` +
       `UID=${this.uid};` +
-      `PWD=${this.password};` ;
+      `PWD=${this.password};`;
 
     return cn;
 

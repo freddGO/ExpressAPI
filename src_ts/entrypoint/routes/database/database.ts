@@ -1,7 +1,9 @@
-import express from 'express'
-import dbControllers from '../../controllers/database/database';
-const routerDatabase = express.Router();
+import databasebControllers from '../../controllers/database/database';
 
-routerDatabase.post('/getInfoFromDatabase', dbControllers.getInfoFromDatabase);
+import express from 'express';
+const RouterDatabase = express.Router();
 
-export default routerDatabase
+RouterDatabase.post('/getInfoFromDatabase', databasebControllers.getInfoFromDatabase);
+
+
+export default RouterDatabase;
